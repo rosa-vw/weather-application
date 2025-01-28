@@ -3,25 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="source/style.css" />
     <title>Weather Application</title>
   </head>
   <body>
-    <header>
-      <form>
-        <input type="text" placeholder="Enter a city..." />
-        <input type="submit" text="Search" />
-      </form>
-    </header>
-    <main>
-      <h1>Amsterdam</h1>
-      <div>Tuesday 14:47 28 Jan 2025</div>
-      <div>📍 Netherlands</div>
-      <div>☀ 8°C sunny</div>
-    </main>
-    <section>
-      <p>Wind chill: 6°C Humidity: 48% Wind speed: 13 km/h</p>
-    </section>
-    <section></section>
+    <div class="weather-app">
+      <div class="weather-main">
+        <header>
+          <form>
+            <input type="text" placeholder="Enter a city..." />
+            <input type="submit" text="Search" />
+          </form>
+        </header>
+        <main>
+          <h1>Amsterdam</h1>
+          <div>Tuesday 14:47 28 Jan 2025</div>
+          <div>📍 Netherlands</div>
+          <div>☀ 8°C sunny</div>
+        </main>
+      </div>
+      <div class="weather-other">
+        <section>
+          <p>Wind chill: 6°C Humidity: 48% Wind speed: 13 km/h</p>
+        </section>
+        <section></section>
+      </div>
+    </div>
     <footer>
       This project was designed and coded by
       <a href="https://github.com/rosa-vw" target="_blank">Rosavw</a>, is

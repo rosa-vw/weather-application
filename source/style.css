@@ -1,0 +1,46 @@
+body {
+  background: linear-gradient(
+    90deg,
+    rgb(239, 246, 249) 0%,
+    rgb(206, 239, 253) 90%
+  );
+  font-family: "Roboto", serif;
+}
+
+footer {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+a {
+  color: #5f85db;
+}
+
+.weather-app {
+  max-width: 600px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-main {
+  max-width: 300px;
+  max-height: 600px;
+  background: #5f85db;
+  border-radius: 10px;
+  padding: 20px;
+  transform: perspective(600px) rotate3d(0, 1, 0, 10deg);
+}
+
+.weather-other {
+  max-width: 300px;
+  max-height: 600px;
+  background: #90b8f8;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 20px;
+}
