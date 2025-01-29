@@ -16,23 +16,40 @@
     <div class="weather-app">
       <div class="weather-main">
         <header>
-          <form>
-            <input type="text" placeholder="Enter a city..." />
-            <input type="submit" text="Search" />
+          <form class="search-form">
+            <input
+              type="text"
+              placeholder="Enter a city..."
+              required
+              class="search-form-input"
+            />
+            <input type="submit" value="Search" class="search-form-button" />
           </form>
         </header>
         <main>
-          <h1>Amsterdam</h1>
-          <div>Tuesday 14:47 28 Jan 2025</div>
-          <div>📍 Netherlands</div>
-          <div>☀ 8°C sunny</div>
+          <div class="country">📍 Netherlands</div>
+          <h1 class="city">Amsterdam</h1>
+          <div class="date-details">
+            <span>Tuesday 14:47</span><span>28 Jan 2025</span>
+          </div>
+
+          <div class="weather-temperature">
+            <span class="icon">☀</span><span class="temperature">28°C</span>
+          </div>
+          <div class="weather-description">sunny</div>
         </main>
       </div>
       <div class="weather-other">
         <section>
-          <p>Wind chill: 6°C Humidity: 48% Wind speed: 13 km/h</p>
+          <div class="extra-weather-details">
+            <div class="perceived"><span>PERCEIVED</span><span>6°C</span></div>
+            <div class="humidity"><span>HUMIDITY</span><span>48%</span></div>
+            <div class="wind-speed">
+              <span>WIND SPEED</span><span>13 km/h</span>
+            </div>
+          </div>
         </section>
-        <section></section>
+        <div class="forecast">Here comes the weather forecast!</div>
       </div>
     </div>
     <footer>
