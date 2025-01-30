@@ -10,31 +10,34 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="source/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <title>Weather Application</title>
   </head>
   <body>
     <div class="weather-app">
       <div class="weather-main">
         <header>
-          <form class="search-form">
+          <form class="search-form" id="search-form">
             <input
               type="text"
               placeholder="Enter a city..."
               required
               class="search-form-input"
+              id="search-form-input"
             />
             <input type="submit" value="Search" class="search-form-button" />
           </form>
         </header>
         <main>
           <div class="country">📍 Netherlands</div>
-          <h1 class="city">Amsterdam</h1>
+          <h1 class="city" id="city"></h1>
           <div class="date-details">
             <span>Tuesday 14:47</span><span>28 Jan 2025</span>
           </div>
 
           <div class="weather-temperature">
-            <span class="icon">☀</span><span class="temperature">28°C</span>
+            <span class="icon">☀</span
+            ><span class="temperature" id="temperature"></span>
           </div>
           <div class="weather-description">sunny</div>
         </main>
@@ -53,7 +56,7 @@
       </div>
     </div>
     <footer>
-      This project was designed and coded by
+      This project was coded by
       <a href="https://github.com/rosa-vw" target="_blank">Rosavw</a>, is
       open-sourced on
       <a href="https://github.com/rosa-vw/weather-application" target="_blank"
@@ -64,5 +67,6 @@
         >Netlify</a
       >
     </footer>
+    <script src="source/script.js"></script>
   </body>
 </html>
