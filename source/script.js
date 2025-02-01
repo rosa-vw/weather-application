@@ -20,6 +20,10 @@ function updateWeather(response) {
   time.innerHTML = formatDay(date);
   let calendar = document.querySelector("#calendar");
   calendar.innerHTML = formatDate(date);
+  let country = document.querySelector("#country");
+  country.innerHTML = response.data.country;
+  let icon = document.querySelector("#icon");
+  icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon"/>`;
 }
 
 function formatDay(date) {
