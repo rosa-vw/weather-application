@@ -90,4 +90,27 @@ function searchSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchSubmit);
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecast = "";
+
+  days.forEach(function (day) {
+    forecast =
+      forecast +
+      `
+  <div class="forecast-day">
+    <div class="forecast-date">${day}</div>
+    <div class="forecast-icon">☀️</div>
+    <div class="forecast-temperatures">
+    <div class="forecast-temperature"><strong>5°</strong></div>
+    <div class="forecast-temperature">2°</div></div>
+  </div>
+`;
+  });
+
+  let forecastSpace = document.querySelector("#forecast");
+  forecastSpace.innerHTML = forecast;
+}
+
 searchCity("Amsterdam");
+displayForecast();
