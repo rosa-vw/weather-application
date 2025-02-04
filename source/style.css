@@ -26,7 +26,7 @@ h1 {
 }
 
 .weather-app {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 50px auto;
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ h1 {
 }
 
 .weather-other {
-  max-width: 400px;
+  max-width: 600px;
   max-height: 300px;
   background: rgb(94, 130, 171);
   color: white;
@@ -152,11 +152,6 @@ h1 {
   justify-content: space-between;
 }
 
-.forecast {
-  margin: 100px auto;
-  text-align: center;
-}
-
 #perceived {
   font-weight: 600;
 }
@@ -167,4 +162,30 @@ h1 {
 
 #wind-speed {
   font-weight: 600;
+}
+
+.forecast {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 45px auto;
+  font-size: 24px;
+}
+
+.forecast-day {
+  margin: 0 20px;
+  font-weight: 200;
+}
+
+.forecast-icon {
+  margin: 10px 0;
+}
+
+.forecast-temperatures {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.forecast-temperature {
+  padding: 0 5px;
 }
