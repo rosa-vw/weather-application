@@ -4,8 +4,10 @@ function updateWeather(response) {
   temperature.innerHTML = `${currentTemperature}°C`;
   let city = document.querySelector("#city");
   city.innerHTML = response.data.city;
+  let description = response.data.condition.description;
   let weatherDescription = document.querySelector("#weather-description");
-  weatherDescription.innerHTML = response.data.condition.description;
+  //weatherDescription.innerHTML = response.data.condition.description;
+  weatherDescription.innerHTML = formatDescription(description);
   let perceived = document.querySelector("#perceived");
   let currentPerceived = Math.round(response.data.temperature.feels_like);
   perceived.innerHTML = `${currentPerceived}°C`;
@@ -28,6 +30,12 @@ function updateWeather(response) {
   getForecast(response.data.city);
 }
 
+function formatDescription(description) {
+  return (
+    description.charAt(0).toUpperCase() + description.slice(1).toLowerCase()
+  );
+}
+
 function formatDay(date) {
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -48,7 +56,7 @@ function formatDay(date) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  return `${day} ${hours}:${minutes}`;
+  return `Updated: ${day} ${hours}:${minutes}`;
 }
 
 function formatDate(date) {
@@ -89,6 +97,13 @@ function searchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let forecastDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return forecastDays[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "f8eo81d182023fdd4fb805t37b75950a";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -96,23 +111,26 @@ function getForecast(city) {
 }
 
 function displayForecast(reponse) {
-  console.log(reponse.data);
-
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecast = "";
 
-  days.forEach(function (day) {
-    forecast =
-      forecast +
-      `
+  reponse.data.daily.forEach(function (day, index) {
+    if (index < 4) {
+      forecast =
+        forecast +
+        `
   <div class="forecast-day">
-    <div class="forecast-date">${day}</div>
-    <div class="forecast-icon">☀️</div>
+    <div class="forecast-date">${formatForecastDay(day.time)}</div>
+    <div><img src="${day.condition.icon_url}" class="forecast-icon"></div>
     <div class="forecast-temperatures">
-    <div class="forecast-temperature"><strong>5°</strong></div>
-    <div class="forecast-temperature">2°</div></div>
+    <div class="forecast-temperature"><strong>${Math.round(
+      day.temperature.maximum
+    )}°</strong></div> / 
+    <div class="forecast-temperature">${Math.round(
+      day.temperature.minimum
+    )}°</div></div>
   </div>
 `;
+    }
   });
 
   let forecastSpace = document.querySelector("#forecast");
